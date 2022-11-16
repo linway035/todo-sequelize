@@ -26,6 +26,13 @@ app.get("/", (req, res) => {
     });
 });
 
+app.get("/todos/:id", (req, res) => {
+  const id = req.params.id;
+  return Todo.findByPk(id)
+    .then((todo) => res.render("detail", { todo: todo.toJSON() }))
+    .catch((error) => console.log(error));
+});
+
 app.get("/users/login", (req, res) => {
   res.render("login");
 });
