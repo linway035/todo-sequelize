@@ -1,4 +1,4 @@
-const passport = require("passport");
+const passport = require("passport"); //把 Passport 套件本身載入進來
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs");
 const db = require("../models");

@@ -4,6 +4,7 @@
   <li class="list-group-item">
     <div class="row">
       <div class="col-auto me-auto">
+        {{!-- index 頁面的 checkbox 只打算供檢視、不能編輯，所以加入了 disabled 屬性。 --}}
         <input class="align-middle" type="checkbox" name="isDone" {{#if this.isDone }} checked {{/if}} disabled>
         <h4 class="d-inline ms-2 align-middle">
           {{ this.name }}
