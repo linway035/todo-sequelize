@@ -1,0 +1,11 @@
+{{!-- 與m不同處: 要將._id底線移除 --}}
+<form action="/todos/{{ todo.id }}?_method=PUT" method="POST" style="display: inline;">
+  <div class="input-group">
+    <div class="input-group-text">
+      <input type="checkbox" class="form-check-input mt-0" name="isDone" {{#if todo.isDone }} checked {{/if}}>
+    </div>
+    <input class="form-control" type="text" placeholder="name" name="name" value="{{ todo.name }}">
+    {{! 預設在輸入框就會把現有的name放上去，而非空白的框 }}
+    <button class="btn btn-success" type="submit">Save</button>
+  </div>
+</form>
