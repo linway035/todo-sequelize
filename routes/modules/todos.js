@@ -23,8 +23,12 @@ router.post("/", (req, res) => {
 
 //展項各id的detail頁面
 router.get("/todos/:id", (req, res) => {
+  const UserId = req.user.id;
   const id = req.params.id;
-  return Todo.findByPk(id)
+  //根據使用者而顯示不同
+  return Todo.findOne({
+    where: { id, UserId },
+  })
     .then((todo) => res.render("detail", { todo: todo.toJSON() }))
     .catch((error) => console.log(error));
 });
