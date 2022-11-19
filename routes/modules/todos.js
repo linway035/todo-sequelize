@@ -16,11 +16,11 @@ router.post("/", (req, res) => {
   const name = req.body.name; //從 req.body 拿出表單裡的 name 資料
   return Todo.create({ name, UserId }) //{name:name} //存入資料庫  //依使用者新增至資料庫
     .then(() => res.redirect("/")) // 新增完成後導回首頁
-    .catch((error) => console.log("error"));
+    .catch((error) => console.log(error));
 });
 
 //展項各id的detail頁面
-router.get("/todos/:id", (req, res) => {
+router.get("/:id", (req, res) => {
   const UserId = req.user.id;
   const id = req.params.id;
   //根據使用者而顯示不同
